@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		
+		<record id="margin_analysis_tree" model="ir.ui.view">
+			<field name="name">margin.analysis.tree</field>
+			<field name="model">margin.analysis</field>
+			<field name="arch" type="xml">
+				<tree editable="bottom" create="0" decoration-info="to_purchase == True and purchase_line_id == False">
+					<field name="to_purchase" invisible="1"/>
+					<field name="supplier_id" domain="[('supplier_rank', '&gt;', 0)]"
+					       attrs="{'required': [('to_purchase', '=', True)]}"/>
+					<field name="order_id"/>
+					<field name="product_id" attrs="{'required': [('to_purchase', '=', True)]}"/>
+					<field name="description"/>
+					<field name="quantity"/>
+					<field name="price_unit"/>
+					<field name="price_subtotal" sum="Purchase total"/>
+					<field name="currency_id" invisible="1"/>
+					<field name="order_line_id" invisible="1"/>
+					<field name="purchase_line_id" invisible="1"/>
+				</tree>
+			</field>
+		</record>
+		
+		<record id="margin_analysis_view_search" model="ir.ui.view">
+			<field name="name">margin.analysis.view.search</field>
+			<field name="model">margin.analysis</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="product_id"/>
+					<field name="supplier_id"/>
+					<filter name="need_purchase" string="Besoins d'achats"
+					        domain="[('to_purchase', '=', True), ('purchase_line_id', '=', False)]"/>
+					<group expand="0" string="Group By">
+						<filter string="Order" name="groupby_order_line_id" context="{'group_by': 'order_line_id'}"/>
+						<filter string="Supplier" name="groupby_supplier_id" context="{'group_by': 'supplier_id'}"/>
+					</group>
+				</search>
+			</field>
+		</record>
+		
+		<record id="need_purchase_action" model="ir.actions.act_window">
+			<field name="name">Need purchases</field>
+			<field name="res_model">margin.analysis</field>
+			<field name="view_mode">tree,form</field>
+			<field name="context">{'search_default_need_purchase': 1}
+			</field>
+		</record>
+		
+		<menuitem id="need_purchase_menu" action="aptys_sale_purchase.need_purchase_action"
+		          parent="sale.sale_order_menu" sequence="100"/>
+		
+		<record id="generate_purchases" model="ir.actions.server">
+			<field name="name">Generate purchases</field>
+			<field name="model_id" ref="aptys_sale_purchase.model_margin_analysis"/>
+			<field name="binding_model_id" ref="aptys_sale_purchase.model_margin_analysis"/>
+			<field name="binding_view_types">list</field>
+			<field name="state">code</field>
+			<field name="code">action = records.action_generate_purchase_order()</field>
+		</record>
+	</data>
+</odoo>

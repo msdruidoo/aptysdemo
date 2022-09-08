@@ -16,7 +16,8 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/sale_order_views.xml'
+        'views/sale_order_views.xml',
+        'views/margin_analysis_views.xml'
     ],
     'license': 'LGPL-3',
 }

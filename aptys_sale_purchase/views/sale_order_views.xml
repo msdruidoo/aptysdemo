@@ -6,28 +6,51 @@
 			<field name="model">sale.order</field>
 			<field name="inherit_id" ref="sale.view_order_form"/>
 			<field name="arch" type="xml">
+				<xpath expr="//button[@name='action_draft']" position="after">
+					<button name="generate_purchase_budget" attrs="{'invisible': [('state', '!=', 'sale')]}"
+					        string="Generate purchase"
+					        type="object"
+					        class="oe_highlight"/>
+				</xpath>
+				<xpath expr="//button[@name='action_view_invoice']" position="before">
+					<button name="action_view_budget" type="object" class="oe_stat_button" icon="fa-bars"
+					        attrs="{'invisible': [('budget_count', '=', 0)]}">
+						<field name="budget_count" widget="statinfo" string="Budget"/>
+					</button>
+				</xpath>
 				<xpath expr="//field[@name='order_line']/tree/field[@name='price_subtotal']" position="before">
 					<field name="request_total"/>
 					<field name="request_ids" invisible="1"/>
-					<button name="open_purchase_request" type="object" class="oe_highlight"
+					<button name="open_margin_analysis" type="object" class="oe_highlight"
 					        icon="fa-bars"/>
 					<field name="request_margin" optional="hide"/>
 				</xpath>
+				<xpath expr="//field[@name='tax_totals_json']" position="after">
+					<field name="total_cost"/>
+					<label for="margin_cost" string="Margin (%)"/>
+					<div>
+						<field name="margin_cost" class="oe_inline"/>%
+					</div>
+				</xpath>
 			</field>
 		</record>
-		<record id="sale_purchase_request_form" model="ir.ui.view">
+		<record id="sale_margin_analysis_form" model="ir.ui.view">
 			<field name="name">sale.order.line.form</field>
 			<field name="model">sale.order.line</field>
 			<field name="arch" type="xml">
-				<form string="">
+				<form>
 					<sheet>
 						<field name="request_ids">
 							<tree editable="bottom">
-								<field name="supplier_id"/>
-								<field name="product_id"/>
+								<field name="to_purchase"/>
+								<field name="supplier_id" domain="[('supplier_rank', '&gt;', 0)]"
+								       attrs="{'required': [('to_purchase', '=', True)], 'readonly': [('to_purchase', '=', False)]}"/>
+								<field name="product_id"
+								       attrs="{'required': [('to_purchase', '=', True)], 'readonly': [('to_purchase', '=', False)]}"/>
+								<field name="description"/>
 								<field name="quantity"/>
 								<field name="price_unit"/>
-								<field name="price_subtotal"/>
+								<field name="price_subtotal" sum="Purchase total"/>
 								<field name="currency_id" invisible="1"/>
 							</tree>
 						</field>
