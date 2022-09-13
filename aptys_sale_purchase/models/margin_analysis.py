@@ -25,12 +25,14 @@ class MarginAnalysis(models.Model):
             rec.price_subtotal = rec.quantity * rec.price_unit
 
     def create_purchase_order(self, supplier_id):
+        if not self.filtered(lambda l: not l.purchase_line_id):
+            return
         purchase_id = self.env['purchase.order'].search([('partner_id', '=', supplier_id), ('state', '=', 'draft')],
                                                         limit=1)
         if not purchase_id:
             purchase_id = self.env['purchase.order'].create({'partner_id': supplier_id})
         purchase_id.onchange_partner_id()
-        for rec in self:
+        for rec in self.filtered(lambda l: not l.purchase_line_id):
             pol = self.env['purchase.order.line'].new({
                 'product_id': rec.product_id.id,
                 'sale_line_id': rec.order_line_id.id,
@@ -47,7 +49,8 @@ class MarginAnalysis(models.Model):
         return purchase_id
 
     def action_generate_purchase_order(self):
-        margin_group = self.read_group([('id', 'in', self.ids)], ['supplier_id'], ['supplier_id'])
+        margin_group = self.read_group([('id', 'in', self.ids), ('supplier_id', '!=', False)], ['supplier_id'],
+                                       ['supplier_id'])
         for pr in margin_group:
             request_ids = self.search(pr['__domain'])
             request_ids.create_purchase_order(pr['supplier_id'][0])
