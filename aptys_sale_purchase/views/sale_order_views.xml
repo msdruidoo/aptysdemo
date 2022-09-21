@@ -43,7 +43,7 @@
 						<field name="request_ids">
 							<tree editable="bottom">
 								<field name="to_purchase"/>
-								<field name="supplier_id" domain="[('supplier_rank', '&gt;', 0)]"
+								<field name="supplier_id"
 								       attrs="{'required': [('to_purchase', '=', True)], 'readonly': [('to_purchase', '=', False)]}"/>
 								<field name="product_id"
 								       attrs="{'required': [('to_purchase', '=', True)], 'readonly': [('to_purchase', '=', False)]}"/>

@@ -12,8 +12,7 @@
 					</header>
 					<field name="to_purchase" invisible="1"/>
 					<field name="purchase_order_id"/>
-					<field name="supplier_id" domain="[('supplier_rank', '&gt;', 0)]"
-					       attrs="{'required': [('to_purchase', '=', True)]}"/>
+					<field name="supplier_id" attrs="{'required': [('to_purchase', '=', True)]}"/>
 					<field name="order_id"/>
 					<field name="customer_id"/>
 					<field name="product_id" attrs="{'required': [('to_purchase', '=', True)]}"/>
