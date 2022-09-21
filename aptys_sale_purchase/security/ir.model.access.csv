@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+aptys_sale_purchase.access_margin_analysis,access_margin_analysis,aptys_sale_purchase.model_margin_analysis,base.group_user,1,1,1,1
