@@ -1,0 +1,239 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* aptys_sale_purchase
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-21 10:35+0000\n"
+"PO-Revision-Date: 2022-09-21 10:35+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: aptys_sale_purchase
+#: code:addons/aptys_sale_purchase/models/sale.py:0
+#, python-format
+msgid "Add purchase request"
+msgstr "Ajouter une demande d'achat"
+
+#. module: aptys_sale_purchase
+#: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.margin_analysis_view_search
+msgid "Besoins d'achats"
+msgstr ""
+
+#. module: aptys_sale_purchase
+#: code:addons/aptys_sale_purchase/models/sale.py:0
+#: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.sale_order_form
+#, python-format
+msgid "Budget"
+msgstr ""
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_sale_order__budget_count
+msgid "Budget Count"
+msgstr ""
+
+#. module: aptys_sale_purchase
+#: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.sale_margin_analysis_form
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__customer_id
+#: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.margin_analysis_view_search
+msgid "Customer"
+msgstr "Client"
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__description
+msgid "Description"
+msgstr ""
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: aptys_sale_purchase
+#: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.sale_order_form
+msgid "Generate purchase"
+msgstr "Génerer achats"
+
+#. module: aptys_sale_purchase
+#: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.margin_analysis_tree
+msgid "Generate purchases"
+msgstr "Générer achats"
+
+#. module: aptys_sale_purchase
+#: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.margin_analysis_view_search
+msgid "Group By"
+msgstr "Regrouper par"
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__id
+msgid "ID"
+msgstr ""
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: aptys_sale_purchase
+#: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.sale_order_form
+msgid "Margin (%)"
+msgstr "Marge (%)"
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_sale_order__margin_cost
+msgid "Margin Cost"
+msgstr "Marge"
+
+#. module: aptys_sale_purchase
+#: model:ir.model,name:aptys_sale_purchase.model_margin_analysis
+msgid "Margin analysis"
+msgstr "Analyse des marges"
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_sale_order_line__request_margin
+msgid "Margin request (%)"
+msgstr "Marge (%)"
+
+#. module: aptys_sale_purchase
+#: model:ir.actions.act_window,name:aptys_sale_purchase.need_purchase_action
+#: model:ir.ui.menu,name:aptys_sale_purchase.need_purchase_menu
+msgid "Need purchases"
+msgstr "Besoins d'achats"
+
+#. module: aptys_sale_purchase
+#: code:addons/aptys_sale_purchase/models/margin_analysis.py:0
+#, python-format
+msgid "Nothing to generate"
+msgstr "Rien à générer"
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__order_line_id
+msgid "Order Line"
+msgstr "Ligne de commande"
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__price_unit
+msgid "Price unit"
+msgstr "Prix unitaire"
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__product_id
+#: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.margin_analysis_view_search
+msgid "Product"
+msgstr "Article"
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__to_purchase
+msgid "Purchase"
+msgstr "Achat"
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__purchase_line_id
+msgid "Purchase Line"
+msgstr "Ligne d'achats"
+
+#. module: aptys_sale_purchase
+#: code:addons/aptys_sale_purchase/models/margin_analysis.py:0
+#, python-format
+msgid "Purchase Order"
+msgstr "Commande fournisseur"
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__purchase_order_id
+#: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.margin_analysis_view_search
+msgid "Purchase order"
+msgstr "Commande fournisseur"
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_sale_order_line__request_total
+#: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.margin_analysis_tree
+#: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.sale_margin_analysis_form
+msgid "Purchase total"
+msgstr "Coût total"
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__quantity
+msgid "Quantity"
+msgstr "Quantité"
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_sale_order_line__request_ids
+msgid "Request"
+msgstr "Demande d'achat"
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__order_id
+#: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.margin_analysis_view_search
+msgid "Sale order"
+msgstr "Commande client"
+
+#. module: aptys_sale_purchase
+#: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.margin_analysis_view_search
+msgid "Sale order line"
+msgstr "Ligne de commande client"
+
+#. module: aptys_sale_purchase
+#: model:ir.model,name:aptys_sale_purchase.model_sale_order
+msgid "Sales Order"
+msgstr "Bon de commande"
+
+#. module: aptys_sale_purchase
+#: model:ir.model,name:aptys_sale_purchase.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Ligne de bons de commande"
+
+#. module: aptys_sale_purchase
+#: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.sale_margin_analysis_form
+msgid "Save"
+msgstr "Sauvegarder"
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__price_subtotal
+msgid "Subtotal"
+msgstr "Sous-total"
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__supplier_id
+#: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.margin_analysis_view_search
+msgid "Supplier"
+msgstr "Fournisseur"
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_sale_order__total_cost
+msgid "Total Cost"
+msgstr "Budget"
