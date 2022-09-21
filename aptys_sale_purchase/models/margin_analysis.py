@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api,_
+from odoo import models, fields, api, _
 
 
 class MarginAnalysis(models.Model):
@@ -8,8 +8,11 @@ class MarginAnalysis(models.Model):
     _description = "Margin analysis"
 
     order_line_id = fields.Many2one('sale.order.line', ondelete="cascade", required=True)
-    order_id = fields.Many2one('sale.order', related='order_line_id.order_id')
+    order_id = fields.Many2one('sale.order', related='order_line_id.order_id', store=True, string='Sale order')
+    customer_id = fields.Many2one('res.partner', related='order_id.partner_id', store=True)
     purchase_line_id = fields.Many2one('purchase.order.line')
+    purchase_order_id = fields.Many2one('purchase.order', related='purchase_line_id.order_id', store=True,
+                                        string='Purchase order')
     supplier_id = fields.Many2one('res.partner', string='Supplier', required=False)
     product_id = fields.Many2one('product.product', 'Product', required=False)
     quantity = fields.Float('Quantity', default=1.0)
@@ -26,7 +29,7 @@ class MarginAnalysis(models.Model):
 
     def create_purchase_order(self, supplier_id):
         if not self.filtered(lambda l: not l.purchase_line_id):
-            return
+            return self.env['purchase.order']
         purchase_id = self.env['purchase.order'].search([('partner_id', '=', supplier_id), ('state', '=', 'draft')],
                                                         limit=1)
         if not purchase_id:
@@ -51,15 +54,34 @@ class MarginAnalysis(models.Model):
     def action_generate_purchase_order(self):
         margin_group = self.read_group([('id', 'in', self.ids), ('supplier_id', '!=', False)], ['supplier_id'],
                                        ['supplier_id'])
+        purchase_order_ids = self.env['purchase.order']
         for pr in margin_group:
             request_ids = self.search(pr['__domain'])
-            request_ids.create_purchase_order(pr['supplier_id'][0])
+            purchase_order_ids |= request_ids.create_purchase_order(pr['supplier_id'][0])
+        if purchase_order_ids:
+            action = {
+                'res_model': 'purchase.order',
+                'type': 'ir.actions.act_window',
+            }
+            if len(purchase_order_ids) == 1:
+                action.update({
+                    'view_mode': 'form',
+                    'res_id': purchase_order_ids.id,
+                })
+            else:
+                action.update({
+                    'name': _("Purchase Order"),
+                    'domain': [('id', 'in', purchase_order_ids.ids)],
+                    'view_mode': 'tree,form',
+                })
+            return action
         return {
             'type': 'ir.actions.client',
             'tag': 'display_notification',
             'params': {
-                'message': _("Purchase orders have been generated"),
+                'message': _("Nothing to generate"),
                 'sticky': False,
+                'type': 'warning'
             },
             'next': {'type': 'ir.actions.act_window_close'}
         }

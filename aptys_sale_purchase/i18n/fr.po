@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-13 11:52+0000\n"
-"PO-Revision-Date: 2022-09-13 11:52+0000\n"
+"POT-Creation-Date: 2022-09-21 10:35+0000\n"
+"PO-Revision-Date: 2022-09-21 10:35+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -59,6 +59,12 @@ msgid "Currency"
 msgstr "Devise"
 
 #. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__customer_id
+#: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.margin_analysis_view_search
+msgid "Customer"
+msgstr "Client"
+
+#. module: aptys_sale_purchase
 #: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__description
 msgid "Description"
 msgstr ""
@@ -74,9 +80,9 @@ msgid "Generate purchase"
 msgstr "Génerer achats"
 
 #. module: aptys_sale_purchase
-#: model:ir.actions.server,name:aptys_sale_purchase.generate_purchases
+#: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.margin_analysis_tree
 msgid "Generate purchases"
-msgstr "Génerer achats"
+msgstr "Générer achats"
 
 #. module: aptys_sale_purchase
 #: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.margin_analysis_view_search
@@ -130,19 +136,15 @@ msgid "Need purchases"
 msgstr "Besoins d'achats"
 
 #. module: aptys_sale_purchase
-#: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.margin_analysis_view_search
-msgid "Order"
-msgstr "Commande"
+#: code:addons/aptys_sale_purchase/models/margin_analysis.py:0
+#, python-format
+msgid "Nothing to generate"
+msgstr "Rien à générer"
 
 #. module: aptys_sale_purchase
 #: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__order_line_id
 msgid "Order Line"
 msgstr "Ligne de commande"
-
-#. module: aptys_sale_purchase
-#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__order_id
-msgid "Order Reference"
-msgstr "Commande"
 
 #. module: aptys_sale_purchase
 #: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__price_unit
@@ -151,6 +153,7 @@ msgstr "Prix unitaire"
 
 #. module: aptys_sale_purchase
 #: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__product_id
+#: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.margin_analysis_view_search
 msgid "Product"
 msgstr "Article"
 
@@ -167,8 +170,14 @@ msgstr "Ligne d'achats"
 #. module: aptys_sale_purchase
 #: code:addons/aptys_sale_purchase/models/margin_analysis.py:0
 #, python-format
-msgid "Purchase orders have been generated"
-msgstr "Les commandes fournisseurs ont été générées"
+msgid "Purchase Order"
+msgstr "Commande fournisseur"
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__purchase_order_id
+#: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.margin_analysis_view_search
+msgid "Purchase order"
+msgstr "Commande fournisseur"
 
 #. module: aptys_sale_purchase
 #: model:ir.model.fields,field_description:aptys_sale_purchase.field_sale_order_line__request_total
@@ -186,6 +195,17 @@ msgstr "Quantité"
 #: model:ir.model.fields,field_description:aptys_sale_purchase.field_sale_order_line__request_ids
 msgid "Request"
 msgstr "Demande d'achat"
+
+#. module: aptys_sale_purchase
+#: model:ir.model.fields,field_description:aptys_sale_purchase.field_margin_analysis__order_id
+#: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.margin_analysis_view_search
+msgid "Sale order"
+msgstr "Commande client"
+
+#. module: aptys_sale_purchase
+#: model_terms:ir.ui.view,arch_db:aptys_sale_purchase.margin_analysis_view_search
+msgid "Sale order line"
+msgstr "Ligne de commande client"
 
 #. module: aptys_sale_purchase
 #: model:ir.model,name:aptys_sale_purchase.model_sale_order
@@ -217,8 +237,3 @@ msgstr "Fournisseur"
 #: model:ir.model.fields,field_description:aptys_sale_purchase.field_sale_order__total_cost
 msgid "Total Cost"
 msgstr "Budget"
-
-#. module: sale_purchase
-#: model:ir.model.fields,field_description:sale_purchase.field_purchase_order_line__sale_line_id
-msgid "Origin Sale Item"
-msgstr "Commande de vente"
